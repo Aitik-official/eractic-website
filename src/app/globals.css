@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+:root {
+  /* EMS logo palette */
+  --ems-navy: #011552;
+  --ems-navy-soft: #0a2a6b;
+  --ems-blue: #006dc2;
+  --ems-cyan: #03abab;
+  --ems-green: #4ea32a;
+  --ems-muted: #5a6f8f;
+  --ems-line: #d5e2f0;
+  --ems-soft: #eef6fb;
+  --ems-soft-strong: #dceef8;
+  --ems-grad: linear-gradient(90deg, #006dc2 0%, #03abab 52%, #4ea32a 100%);
+
+  /* Keep existing class names; map to EMS colors */
+  --finbiz-red: #03abab;
+  --finbiz-red-dark: #028a8a;
+  --finbiz-navy: #011552;
+  --finbiz-navy-soft: #0a2a6b;
+  --finbiz-gray: #5a6f8f;
+  --finbiz-muted: #f4f8fc;
+  --finbiz-pink: #e8f6f6;
+  --background: #ffffff;
+  --foreground: #011552;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-finbiz-red: var(--finbiz-red);
+  --color-finbiz-red-dark: var(--finbiz-red-dark);
+  --color-finbiz-navy: var(--finbiz-navy);
+  --color-finbiz-navy-soft: var(--finbiz-navy-soft);
+  --color-finbiz-gray: var(--finbiz-gray);
+  --color-finbiz-muted: var(--finbiz-muted);
+  --color-finbiz-pink: var(--finbiz-pink);
+  --color-ems-navy: var(--ems-navy);
+  --color-ems-blue: var(--ems-blue);
+  --color-ems-cyan: var(--ems-cyan);
+  --color-ems-green: var(--ems-green);
+  --color-ems-soft: var(--ems-soft);
+  --color-ems-muted: var(--ems-muted);
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-playfair);
+  --font-display: var(--font-cormorant);
+  --font-brand: var(--font-michroma);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), sans-serif;
+  overflow-x: hidden;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(1, 21, 82, 0.12);
+}
+
+.outline-text-light {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(1, 21, 82, 0.08);
+}
+
+.ems-grad {
+  background-image: var(--ems-grad);
+}
+
+.ems-grad-text {
+  background-image: var(--ems-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Section reveal animations */
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-up {
+  transform: translateY(28px);
+}
+
+.reveal-left {
+  transform: translateX(-32px);
+}
+
+.reveal-right {
+  transform: translateX(32px);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-scale {
+  transform: scale(0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Hero load-in */
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: heroIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-animate-delay-1 {
+  animation-delay: 0.12s;
+}
+.hero-animate-delay-2 {
+  animation-delay: 0.24s;
+}
+.hero-animate-delay-3 {
+  animation-delay: 0.36s;
+}
+.hero-animate-delay-4 {
+  animation-delay: 0.48s;
+}
+
+/* Interactive card lift */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade,
+  .reveal-scale,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-animate {
+    opacity: 1;
+    animation: none;
+  }
+
+  .card-lift,
+  .card-lift:hover {
+    transition: none;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

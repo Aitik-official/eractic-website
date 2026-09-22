@@ -1,0 +1,63 @@
+import type { Metadata } from "next";
+import {
+  Poppins,
+  Playfair_Display,
+  Cormorant_Garamond,
+  Michroma,
+} from "next/font/google";
+import { site } from "@/data/site";
+import SiteShell from "@/components/SiteShell";
+import "./globals.css";
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+/** Matches the geometric extended “eratic” wordmark in the logo */
+const michroma = Michroma({
+  variable: "--font-michroma",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: `${site.name} | ${site.tagline}`,
+    template: `%s | ${site.shortName}`,
+  },
+  description: site.description,
+  icons: { icon: site.logo },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${poppins.variable} ${playfair.variable} ${cormorant.variable} ${michroma.variable} h-full`}
+    >
+      <body className="flex min-h-full flex-col font-sans antialiased">
+        <SiteShell>{children}</SiteShell>
+      </body>
+    </html>
+  );
+}
