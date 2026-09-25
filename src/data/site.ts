@@ -465,18 +465,46 @@ export const assetCategories = [
 ] as const;
 
 export const clients = [
-  { name: "Tata 1mg Healthcare", category: "Healthcare", color: "#006dc2" },
-  { name: "Tata 1mg Technologies", category: "Technology", color: "#03abab" },
-  { name: "Jarvis Consulting", category: "Consulting", color: "#011552" },
-  { name: "Khoobsurat Makeovers", category: "Beauty", color: "#4ea32a" },
+  {
+    name: "Tata 1mg",
+    category: "Healthcare",
+    color: "#006dc2",
+    logo: "/clients/tata-1mg.svg",
+  },
+  {
+    name: "Jarvis Consulting",
+    category: "Consulting",
+    color: "#011552",
+    logo: "/clients/jarvis.png",
+    dark: true,
+  },
+  {
+    name: "Khoobsurat Makeovers",
+    category: "Beauty",
+    color: "#4ea32a",
+    logo: "/clients/khoobsurat.png",
+  },
   {
     name: "Lifestyle Foods",
     category: "Food",
     note: "Chuk De Masale",
     color: "#006dc2",
+    logo: "/clients/chukde.svg",
   },
-  { name: "Contact 360 Marketing", category: "Marketing", color: "#03abab" },
-  { name: "BBQ", category: "Hospitality", color: "#011552" },
+  {
+    name: "Contact 360 Marketing",
+    category: "Marketing",
+    color: "#03abab",
+    logo: "/clients/contact-360.jpg",
+    round: true,
+  },
+  {
+    name: "BBQ",
+    category: "Hospitality",
+    color: "#011552",
+    logo: "/clients/bbq.svg",
+    zoom: "md",
+  },
 ] as const;
 
 export const testimonials = [

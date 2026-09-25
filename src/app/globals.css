@@ -113,6 +113,14 @@ body {
   }
 }
 
+.logo-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.logo-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Section reveal animations */
 .reveal {
   opacity: 0;
